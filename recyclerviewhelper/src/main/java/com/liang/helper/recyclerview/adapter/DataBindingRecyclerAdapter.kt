@@ -5,9 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class DataBindingRecyclerAdapter<T> : RecyclerAdapter<T, RecyclerViewHolder>() {
+abstract class DataBindingRecyclerAdapter<T>(diffCallback: DiffUtil.ItemCallback<T>? = null) :
+    RecyclerAdapter<T, RecyclerViewHolder>(diffCallback) {
 
     final override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder =
         RecyclerViewHolder(
