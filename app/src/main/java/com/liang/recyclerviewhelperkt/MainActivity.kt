@@ -18,17 +18,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         remove.setOnClickListener {
-            adapter.removeLevelList(2)
+            //            adapter.removeLevelList(2)
         }
     }
 
-    var level = 0
+    var level = -1
     private fun addData() {
         level++
         val test = arrayListOf<String>()
         repeat(5) {
-            test.add("${level}级列表$it")
+            test.add("${level}级列表:$it")
         }
-        adapter.submitLevelList(level, test)
+        adapter.submitLevelList("${level - 1}级列表:3", level, test)
     }
 }

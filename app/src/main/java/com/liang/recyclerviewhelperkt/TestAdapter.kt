@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.liang.helper.recyclerview.adapter.ExpandableRecyclerAdapter
+import com.liang.helper.recyclerview.adapter.LevelItem
 
 class TestAdapter : ExpandableRecyclerAdapter<ViewHolder>() {
 
@@ -13,10 +14,8 @@ class TestAdapter : ExpandableRecyclerAdapter<ViewHolder>() {
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        getItem(position)?.let {
-            holder.text.text = "$it"
-        }
+    override fun onBindViewHolder(holder: ViewHolder, levelItem: LevelItem, position: Int) {
+        holder.text.text = "$levelItem"
     }
 }
 
